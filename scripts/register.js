@@ -1,4 +1,6 @@
-// list of pets
+
+// COMMENTED OUT: Pet object literals
+/*
 let pets = [
     {
         name: "Max",
@@ -23,17 +25,14 @@ let pets = [
     }
 ];
 
-// Count how many pets we have
 function displayPetCount() {
-    let count = pets.length; // Counts the number of pets in array
-    document.getElementById("petCount").innerHTML = count; // Displays count        
+    let count = pets.length;
+    document.getElementById("petCount").innerHTML = count;
 }
 
-// Display all pet names in a list
 function displayPetNames() {
     let petNamesHTML = "";
     
-    // Loop through each pet and add their name to the list
     for (let i = 0; i < pets.length; i++) {
         petNamesHTML += `<li class="list-group-item">${pets[i].name}</li>`;
     }
@@ -41,6 +40,6 @@ function displayPetNames() {
     document.getElementById("petNames").innerHTML = petNamesHTML;
 }
 
-
 displayPetCount();
 displayPetNames();
+*/
