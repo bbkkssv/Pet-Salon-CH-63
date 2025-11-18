@@ -34,6 +34,25 @@
     <!-- Container centers content and adds proper spacing -->
     <div class="container mt-4">
         <h1>Get your pet pampered today!</h1>
+        
+       
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card bg-success mt-4">
+                    <div class="card-body text-white">
+                        <h4 class="card-title">Registered Pets</h4>
+                        <p class="display-4" id="constructorPetCount">0</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h3>Pet Names</h3>
+                    <ul class="list-group" id="constructorPetNames">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         <!-- Pet Registration Form -->
         <div class="card mt-5 p-4 shadow-sm">
@@ -84,11 +103,6 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="petColor" class="form-label">Color</label>
-                    <input type="text" class="form-control" id="petColor" name="petColor" placeholder="e.g., Brown, White, Black" required>
-                </div>
-
                 <div class="d-flex justify-content-end gap-2">
                     <button type="button" class="btn btn-primary" onclick="registerPet(event)">Register</button>
                     <button type="reset" class="btn btn-secondary">Reset Form</button>
@@ -108,7 +122,6 @@
                             <th>Breed</th>
                             <th>Gender</th>
                             <th>Service</th>
-                            <th>Color</th>
                             <th>Type</th>
                         </tr>
                     </thead>

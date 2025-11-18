@@ -1,23 +1,45 @@
 // Pet Registration JavaScript
 
 // Pet Constructor Function
-function Pet(name, age, gender, breed, service, type, color) {
+function Pet(name, age, gender, breed, service, type) {
     this.name = name;
     this.age = age;
     this.gender = gender;
     this.breed = breed;
     this.service = service;
     this.type = type;
-    this.color = color;
 }
 
 // Create initial pets
-let pet1 = new Pet("Fluffy", 4, "Female", "Persian Cat", "Grooming", "Cat", "White");
-let pet2 = new Pet("Buddy", 2, "Male", "Labrador", "Bath", "Dog", "Golden");
-let pet3 = new Pet("Whiskers", 1, "Male", "Maine Coon", "Nail Trim", "Cat", "Gray");
+let pet1 = new Pet("Fluffy", 4, "Female", "Persian Cat", "Grooming", "Cat");
+let pet2 = new Pet("Buddy", 2, "Male", "Labrador", "Bath", "Dog");
+let pet3 = new Pet("Whiskers", 1, "Male", "Maine Coon", "Nail Trim", "Cat");
 
 // Array to hold all constructor pets
 let constructorPets = [pet1, pet2, pet3];
+
+// Display the number of constructor pets
+function displayConstructorPetCount() {
+    let count = constructorPets.length;
+    let element = document.getElementById("constructorPetCount");
+    if (element) {
+        element.innerHTML = count;
+    }
+}
+
+// Display constructor pet names
+function displayConstructorPetNames() {
+    let petNamesHTML = "";
+    
+    for (let i = 0; i < constructorPets.length; i++) {
+        petNamesHTML += `<li class="list-group-item">${constructorPets[i].name} (${constructorPets[i].type})</li>`;
+    }
+    
+    let element = document.getElementById("constructorPetNames");
+    if (element) {
+        element.innerHTML = petNamesHTML;
+    }
+}
 
 // Display a single pet as a table row
 function displayRow(pet) {
@@ -28,7 +50,6 @@ function displayRow(pet) {
             <td>${pet.breed}</td>
             <td>${pet.gender}</td>
             <td>${pet.service}</td>
-            <td>${pet.color}</td>
             <td>${pet.type}</td>
         </tr>
     `;
@@ -59,7 +80,6 @@ function registerPet(event) {
     let breed = document.getElementById("petBreed").value;
     let gender = document.getElementById("petGender").value;
     let service = document.getElementById("petService").value;
-    let color = document.getElementById("petColor").value;
     
     // Determine pet type based on breed
     let type = "";
@@ -70,12 +90,14 @@ function registerPet(event) {
     }
     
     // Create new pet using constructor
-    let newPet = new Pet(name, age, gender, breed, service, type, color);
+    let newPet = new Pet(name, age, gender, breed, service, type);
     
     // Add to pets array
     constructorPets.push(newPet);
     
-    // Update table display
+    // Update displays
+    displayConstructorPetCount();
+    displayConstructorPetNames();
     displayPetTable();
     
     // Reset form
@@ -85,4 +107,6 @@ function registerPet(event) {
 }
 
 // Initialize display when page loads
+displayConstructorPetCount();
+displayConstructorPetNames();
 displayPetTable();
