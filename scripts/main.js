@@ -1,11 +1,11 @@
-// Main JavaScript file for the Pet Salon website
+// Main JavaScript file for the Pet Salon website. This is only for the index.html page
 
 // Salon object with basic information
 let salon = {
-    name: "The Fashion Pet Salon",
+    name: "Pet Salon",
     address: "123 Pet Street, Dogtown, CA 90210",
     phone: "(555) 123-PETS",
-    email: "info@fashionpetsalon.com",
+    email: "info@petsalon.com",
     workingHours: "Mon-Fri: 9AM-6PM, Sat: 9AM-4PM",
     services: ["Grooming", "Nail Trim", "Bath", "Haircut"]
 };
@@ -26,5 +26,5 @@ function displaySalonInfo() {
     }
 }
 
-// Call function when page loads
+
 displaySalonInfo();
