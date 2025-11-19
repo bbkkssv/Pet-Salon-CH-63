@@ -1,2 +1,523 @@
-/* Pet Salon Custom Styles */
-/* Bootstrap CSS is loaded via CDN in HTML files */
+/* ===================================
+   PET SALON CUSTOM STYLES
+   ===================================
+   This CSS file provides all custom styling for the Pet Salon website
+   
+   Theme Colors:
+   - Primary: Teal (#20c997) - Used for main elements, buttons, headers
+   - Secondary: Turquoise (#17a2b8) - Used in gradients with teal
+   - Accent: Coral/Orange - For highlights and calls-to-action
+   
+   Structure:
+   1. Global Styles (body, containers)
+   2. Header Styles (site header with gradient)
+   3. Navigation Styles (navbar and links)
+   4. Card Styles (information cards)
+   5. Form Styles (inputs, labels, focus states)
+   6. Button Styles (primary, secondary, action buttons)
+   7. Table Styles (pet display table)
+   8. Footer Styles (site footer with links)
+   9. Responsive Styles (mobile adjustments)
+   =================================== */
+
+/* --------------------------------------------------------
+   1. GLOBAL STYLES
+   --------------------------------------------------------
+   These styles apply to the entire page */
+
+body {
+    /* Font stack - tries each font in order until one is available */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Light gray background provides subtle contrast */
+    background-color: #f8f9fa;
+    
+    /* Dark gray text color for readability */
+    color: #333;
+    
+    /* min-height ensures body is at least full viewport height */
+    min-height: 100vh;
+    
+    /* Flexbox layout - makes it easy to position header, content, and footer */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+/* Main content area grows to fill available space, pushing footer to bottom */
+.main-content {
+    flex: 1; /* Takes up all available space between header and footer */
+}
+
+/* --------------------------------------------------------
+   2. HEADER STYLES
+   --------------------------------------------------------
+   Professional header section with gradient background */
+
+.site-header {
+    /* Linear gradient creates smooth color transition from teal to turquoise
+       135deg creates diagonal gradient from top-left to bottom-right */
+    background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+    
+    color: white; /* White text contrasts well with teal background */
+    
+    padding: 2rem 0; /* 2rem top and bottom padding (rem is relative to root font size) */
+    
+    /* Box shadow creates depth - horizontal, vertical, blur, color */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.site-header h1 {
+    font-size: 2.5rem; /* Large font for main heading (1rem ≈ 16px) */
+    font-weight: bold; /* Makes text thicker/bolder */
+    margin: 0; /* Removes default margin */
+    
+    /* Text shadow makes text stand out against gradient background
+       Format: horizontal-offset vertical-offset blur color */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    
+    color: #ffffff; /* Pure white for maximum contrast */
+}
+
+.site-header p {
+    font-size: 1.1rem; /* Slightly larger than normal text */
+    margin: 0.5rem 0 0 0; /* Small top margin only */
+    opacity: 1; /* Fully opaque (no transparency) */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle shadow for readability */
+    color: #ffffff; /* Pure white text */
+    font-weight: 500; /* Medium font weight (between normal 400 and bold 700) */
+}
+
+/* --------------------------------------------------------
+   3. NAVIGATION STYLES
+   --------------------------------------------------------
+   Navbar styling for site navigation */
+
+.navbar {
+    background-color: white !important; /* !important overrides Bootstrap default */
+    
+    /* Subtle shadow separates navbar from content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    
+    padding: 1rem 0; /* Vertical padding for spacing */
+}
+
+.navbar-brand {
+    font-weight: bold; /* Bold text for brand name */
+    color: #20c997 !important; /* Teal color matches theme */
+    font-size: 1.5rem; /* Larger than regular nav links */
+    
+    /* Transition creates smooth color change on hover - property duration timing */
+    transition: color 0.3s;
+}
+
+.navbar-brand:hover {
+    color: #17a2b8 !important; /* Changes to turquoise on hover */
+}
+
+.nav-link {
+    color: #555 !important; /* Medium gray for normal state */
+    font-weight: 500; /* Medium weight */
+    margin: 0 0.5rem; /* Space between links */
+    padding: 0.5rem 1rem !important; /* Internal spacing */
+    border-radius: 5px; /* Rounded corners */
+    
+    /* Transition affects all animatable properties smoothly */
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef; /* Light gray background on hover */
+    color: #20c997 !important; /* Teal text on hover */
+}
+
+.nav-link.active {
+    /* Active link (current page) has teal background */
+    background-color: #20c997 !important;
+    color: white !important; /* White text for contrast */
+}
+
+/* --------------------------------------------------------
+   4. CARD STYLES
+   --------------------------------------------------------
+   Styling for Bootstrap cards (used for salon info, etc.) */
+
+.card {
+    border: none; /* Removes default border */
+    border-radius: 10px; /* Rounded corners for modern look */
+    
+    /* Shadow creates depth and floating effect */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    
+    /* Transitions make hover effects smooth */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    /* Moves card up slightly on hover (negative Y value) */
+    transform: translateY(-5px);
+    
+    /* Stronger shadow on hover enhances "lifting" effect */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    /* Gradient background matches site header */
+    background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+    color: white; /* White text for contrast */
+    font-weight: bold; /* Bold text in header */
+    
+    /* Border radius only on top corners (top-left top-right bottom-right bottom-left) */
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* Card header headings - make text more visible */
+.card-header h3 {
+    color: #ffffff !important; /* Pure white for maximum visibility */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Add shadow for depth */
+    margin: 0; /* Remove default margin */
+}
+
+/* Card body styling for better contrast */
+.card-body {
+    background-color: #ffffff; /* Ensure white background */
+}
+
+/* Pet count display - make number more visible */
+#petCount {
+    color: #20c997 !important; /* Teal color for emphasis */
+    font-weight: bold; /* Make number stand out */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+/* --------------------------------------------------------
+   5. FORM STYLES
+   --------------------------------------------------------
+   Styling for registration form inputs and labels */
+
+.form-label {
+    font-weight: 600; /* Semi-bold labels are easier to scan */
+    color: #495057; /* Dark gray color */
+    margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+/* Applies to both text inputs and select dropdowns */
+.form-control, .form-select {
+    border: 2px solid #e9ecef; /* Light gray border in normal state */
+    border-radius: 8px; /* Rounded corners match site theme */
+    padding: 0.75rem; /* Internal spacing for comfort */
+    
+    /* Smooth transition for border color and shadow changes */
+    transition: all 0.3s;
+}
+
+/* When user clicks/focuses on an input, apply these styles */
+.form-control:focus, .form-select:focus {
+    border-color: #20c997; /* Changes to teal to show it's active */
+    
+    /* Box shadow creates a "glow" effect around the input
+       Format: horizontal vertical blur spread color */
+    box-shadow: 0 0 0 0.2rem rgba(32, 201, 151, 0.25);
+}
+
+/* --------------------------------------------------------
+   6. BUTTON STYLES
+   --------------------------------------------------------
+   Custom button styling for different button types */
+
+/* Primary buttons (main action buttons like "Register") */
+.btn-primary {
+    /* Gradient background matches site theme */
+    background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+    border: none; /* No border needed with gradient */
+    padding: 0.75rem 2rem; /* Generous padding makes button easy to click */
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 600; /* Semi-bold text */
+    transition: all 0.3s; /* Smooth animation for all changes */
+}
+
+/* Hover state for primary buttons */
+.btn-primary:hover {
+    /* Darker gradient on hover for visual feedback */
+    background: linear-gradient(135deg, #1ab386 0%, #138496 100%);
+    
+    /* Moves button up slightly (creates "pressing" effect) */
+    transform: translateY(-2px);
+    
+    /* Shadow makes button appear to lift off the page */
+    box-shadow: 0 4px 12px rgba(32, 201, 151, 0.4);
+}
+
+/* Secondary buttons (like "Reset Form") */
+.btn-secondary {
+    background-color: #6c757d; /* Gray color for less important actions */
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Action Button Styles (Edit and Delete buttons in table) */
+.btn-sm {
+    /* Smaller padding for compact buttons */
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem; /* Slightly smaller text */
+    border-radius: 6px;
+    
+    /* Faster transition for quick feedback */
+    transition: all 0.2s;
+}
+
+/* Warning/Edit button (yellow) */
+.btn-warning {
+    background-color: #ffc107; /* Bootstrap warning yellow */
+    border: none;
+    color: #000; /* Black text for contrast with yellow */
+    font-weight: 500;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+    color: #000; /* Keep text black */
+    transform: translateY(-1px); /* Slight lift */
+    box-shadow: 0 3px 8px rgba(255, 193, 7, 0.4); /* Yellow glow */
+}
+
+/* Danger/Delete button (red) */
+.btn-danger {
+    background-color: #dc3545; /* Bootstrap danger red */
+    border: none;
+    font-weight: 500;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-1px); /* Slight lift */
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.4); /* Red glow */
+}
+
+/* --------------------------------------------------------
+   7. TABLE STYLES
+   --------------------------------------------------------
+   Styling for the pet registration table */
+
+.table {
+    background-color: white; /* White background for table */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Keeps rounded corners when content overflows */
+    
+    /* Subtle shadow for depth */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Table header section */
+.table thead {
+    /* Gradient background matches site theme */
+    background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+    color: white; /* White text for contrast */
+}
+
+/* Table header cells */
+.table thead th {
+    border: none; /* Remove default borders */
+    padding: 1rem; /* Comfortable spacing */
+    font-weight: 600; /* Semi-bold text */
+    text-transform: uppercase; /* ALL CAPS for headers */
+    font-size: 0.85rem; /* Slightly smaller than body text */
+    letter-spacing: 0.5px; /* Space out letters for readability */
+}
+
+/* Table body rows */
+.table tbody tr {
+    /* Smooth transition for background color changes */
+    transition: background-color 0.3s;
+}
+
+/* Striped rows - every odd row gets light teal background */
+/* nth-of-type(odd) selects 1st, 3rd, 5th rows, etc. */
+.table-striped tbody tr:nth-of-type(odd) {
+    /* rgba allows transparency - last number (0.05) is alpha/opacity */
+    background-color: rgba(32, 201, 151, 0.05);
+}
+
+/* Hover effect for table rows */
+.table-hover tbody tr:hover {
+    background-color: rgba(32, 201, 151, 0.1); /* Darker teal on hover */
+    cursor: pointer; /* Changes cursor to hand/pointer */
+}
+
+/* Table data cells */
+.table td {
+    padding: 1rem; /* Spacing inside cells */
+    vertical-align: middle; /* Centers content vertically */
+}
+
+/* --------------------------------------------------------
+   PAGE TITLE STYLES
+   --------------------------------------------------------
+   Styling for headings throughout the site */
+
+h1, h2, h3 {
+    color: #20c997; /* Teal color matches theme */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+h1 {
+    font-size: 2.5rem; /* Largest heading */
+    margin-bottom: 1.5rem; /* Space below heading */
+}
+
+h2 {
+    font-size: 2rem; /* Medium-large heading */
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem; /* Smaller heading */
+}
+
+/* --------------------------------------------------------
+   INFO CARD STYLES
+   --------------------------------------------------------
+   Special styling for information display cards (salon info, etc.) */
+
+.info-card {
+    /* Light gradient background with transparency */
+    background: linear-gradient(135deg, rgba(32, 201, 151, 0.1) 0%, rgba(23, 162, 184, 0.1) 100%);
+    
+    /* Accent border on left side */
+    border-left: 4px solid #20c997;
+    
+    padding: 1.5rem; /* Internal spacing */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 1rem; /* Space below card */
+}
+
+.info-card h2 {
+    color: #17a2b8; /* Turquoise headings in info cards */
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    margin-bottom: 0.5rem; /* Space between paragraphs */
+    color: #495057; /* Dark gray text */
+}
+
+.info-card strong {
+    color: #20c997; /* Teal color for bold/important text */
+}
+
+/* --------------------------------------------------------
+   8. FOOTER STYLES
+   --------------------------------------------------------
+   Site footer with links, contact info, and social media */
+
+.site-footer {
+    background-color: #212529; /* Very dark gray (almost black) */
+    color: #adb5bd; /* Light gray text for contrast */
+    padding: 3rem 0 1rem 0; /* 3rem top, 1rem bottom */
+    margin-top: auto; /* Pushes footer to bottom of flexbox container */
+}
+
+.site-footer h5 {
+    color: #20c997; /* Teal headings stand out */
+    font-weight: bold;
+    margin-bottom: 1rem; /* Space below heading */
+}
+
+.site-footer a {
+    color: #adb5bd; /* Light gray links */
+    text-decoration: none; /* Remove underline */
+    
+    /* Smooth color transition on hover */
+    transition: color 0.3s;
+}
+
+.site-footer a:hover {
+    color: #20c997; /* Links turn teal on hover */
+}
+
+/* Social media links section */
+.site-footer .social-links a {
+    display: inline-block; /* Allows margin and other box properties */
+    margin-right: 1rem; /* Space between icons */
+    font-size: 1.5rem; /* Larger icons */
+}
+
+/* Footer bottom section (copyright, etc.) */
+.footer-bottom {
+    border-top: 1px solid #495057; /* Separator line */
+    padding-top: 1.5rem; /* Space above text */
+    margin-top: 2rem; /* Space from footer content */
+    text-align: center; /* Center the copyright text */
+    color: #6c757d; /* Medium gray */
+}
+
+/* --------------------------------------------------------
+   9. RESPONSIVE DESIGN STYLES
+   --------------------------------------------------------
+   Media queries adjust styles for mobile devices
+   max-width: 768px targets tablets and phones in portrait mode */
+
+@media (max-width: 768px) {
+    /* Reduce header text size on small screens */
+    .site-header h1 {
+        font-size: 2rem; /* Smaller than desktop 2.5rem */
+    }
+    
+    .site-header p {
+        font-size: 1rem; /* Smaller tagline */
+    }
+    
+    /* Adjust page heading sizes */
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Make table text smaller to fit on mobile */
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    /* Smaller buttons on mobile */
+    .btn-primary, .btn-secondary {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* --------------------------------------------------------
+   UTILITY CLASSES
+   --------------------------------------------------------
+   Reusable helper classes for special effects */
+
+/* Custom shadow class for extra depth */
+.shadow-custom {
+    /* Larger, more pronounced shadow than default Bootstrap shadow */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Custom badge/label styling */
+.badge-custom {
+    background-color: #20c997; /* Teal background */
+    color: white; /* White text */
+    padding: 0.5rem 1rem; /* Internal spacing */
+    border-radius: 20px; /* Pill-shaped (very rounded) */
+    font-weight: 600; /* Semi-bold text */
+}
+
+/* --------------------------------------------------------
+   END OF STYLESHEET
+   --------------------------------------------------------
+   For questions or modifications, refer to Bootstrap 5 documentation
+   at https://getbootstrap.com/docs/5.0/
+   -------------------------------------------------------- */
