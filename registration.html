@@ -1,121 +1,72 @@
-<!-- ============================================================
-     PET REGISTRATION PAGE
-     ============================================================
-     This page allows users to register their pets for salon services
-     
-     Key Features:
-     - Registration form with 7 input fields
-     - Dynamic table display of all registered pets
-     - Edit and Delete functionality for each pet
-     - Bootstrap 5 responsive design
-     - Custom teal/turquoise color scheme
-     
-     Technologies:
-     - HTML5: Semantic markup and form elements
-     - Bootstrap 5: CSS framework for responsive design
-     - Bootstrap Icons: Icon library for UI elements
-     - JavaScript: Pet constructor and DOM manipulation (register.js)
-     - Custom CSS: Theme styling (style.css)
-     ============================================================ -->
-
 <!DOCTYPE html>
-<!-- HTML5 document type declaration -->
 <html lang="en">
-<!-- lang attribute helps screen readers and search engines -->
 
 <head>
-    <!-- Character encoding for proper text display -->
     <meta charset="UTF-8">
-    
-    <!-- Viewport meta tag makes the page responsive on mobile devices -->
-    <!-- width=device-width: matches screen width -->
-    <!-- initial-scale=1.0: sets initial zoom level to 100% -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Page title shown in browser tab -->
     <title>Pet Registration - The Fashion Pet Salon</title>
-    
-    <!-- Bootstrap CSS from CDN (Content Delivery Network) -->
-    <!-- CDN loads Bootstrap faster from distributed servers -->
-    <!-- integrity and crossorigin attributes provide security -->
+    <!-- Bootstrap CSS for responsive design -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
-    <!-- Bootstrap Icons for UI elements (pencil, trash, social media icons) -->
+    <!-- Bootstrap Icons for UI elements -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    
-    <!-- Our custom CSS file for theme colors and additional styling -->
+    <!-- Custom CSS for teal theme -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <!-- ============================================================
-         SITE HEADER SECTION
-         ============================================================
-         Professional header with gradient background and site branding -->
-    <header class="site-header">
+    <!-- Site header with teal gradient -->
+    <header class="site-header py-5">
         <div class="container">
-            <!-- Main site title with paw print emoji -->
-            <h1>🐾 The Fashion Pet Salon</h1>
-            
-            <!-- Tagline/slogan -->
-            <p>Where Every Pet Gets the Royal Treatment</p>
+            <h1 class="display-4 fw-bold mb-0 text-white">🐾 The Fashion Pet Salon</h1>
+            <p class="fs-5 mt-2 mb-0 text-white">Where Every Pet Gets the Royal Treatment</p>
         </div>
     </header>
 
-    <!-- ============================================================
-         NAVIGATION BAR
-         ============================================================
-         Responsive navigation menu using Bootstrap navbar component -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
         <div class="container">
-            <!-- Brand logo/link - goes to homepage -->
-            <a class="navbar-brand" href="index.html">🐾 Pet Salon</a>
-            
-            <!-- Hamburger menu button - only visible on mobile devices -->
-            <!-- data-bs-toggle and data-bs-target connect button to collapsible menu -->
+            <a class="navbar-brand fw-bold fs-4" href="index.html">🐾 Pet Salon</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Navigation links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">About Us</a>
+                        <a class="nav-link fw-medium text-secondary mx-2 px-3 py-2 rounded" href="index.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link fw-medium text-secondary mx-2 px-3 py-2 rounded" href="services.html">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="registration.html">Registration</a>
+                        <a class="nav-link active fw-medium mx-2 px-3 py-2 rounded" href="registration.html">Registration</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <!-- Container centers content and adds proper spacing -->
+    <!-- Main content area -->
+    <main class="main-content bg-light">
         <div class="container mt-5 mb-5">
-            <h1 class="text-center mb-4">Get Your Pet Pampered Today!</h1>
+            <h1 class="text-center mb-5 fw-bold display-5">Get Your Pet Pampered Today!</h1>
 
-            <!-- Pet Registration Form -->
-            <div class="card p-4 shadow-custom">
-                <h2 class="mb-4">Pet Registration Form</h2>
+            <!-- Registration form -->
+            <div class="card p-4 shadow rounded-3 border-0">
+                <h2 class="mb-4 fw-bold">Pet Registration Form</h2>
             <form id="petRegistrationForm">
                 <div class="mb-3">
-                    <label for="petName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="petName" name="petName" required>
+                    <label for="petName" class="form-label fw-semibold text-dark">Name</label>
+                    <input type="text" class="form-control border-2 rounded-3 py-2 px-3" id="petName" name="petName" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="petAge" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="petAge" name="petAge" required>
+                    <label for="petAge" class="form-label fw-semibold text-dark">Age</label>
+                    <input type="number" class="form-control border-2 rounded-3 py-2 px-3" id="petAge" name="petAge" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="petBreed" class="form-label">Breed</label>
-                    <select class="form-select" id="petBreed" name="petBreed" required>
+                    <label for="petBreed" class="form-label fw-semibold text-dark">Breed</label>
+                    <select class="form-select border-2 rounded-3 py-2 px-3" id="petBreed" name="petBreed" required>
                         <option value="" selected>Select Breed</option>
                         <option value="Golden Retriever">Golden Retriever</option>
                         <option value="Labrador">Labrador</option>
@@ -129,8 +80,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="petGender" class="form-label">Gender</label>
-                    <select class="form-select" id="petGender" name="petGender" required>
+                    <label for="petGender" class="form-label fw-semibold text-dark">Gender</label>
+                    <select class="form-select border-2 rounded-3 py-2 px-3" id="petGender" name="petGender" required>
                         <option value="" selected>Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -138,8 +89,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="petService" class="form-label">Service</label>
-                    <select class="form-select" id="petService" name="petService" required>
+                    <label for="petService" class="form-label fw-semibold text-dark">Service</label>
+                    <select class="form-select border-2 rounded-3 py-2 px-3" id="petService" name="petService" required>
                         <option value="" selected>Select Service</option>
                         <option value="Grooming">Grooming</option>
                         <option value="Nail Trim">Nail Trim</option>
@@ -149,69 +100,64 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="petColor" class="form-label">Color</label>
-                    <input type="text" class="form-control" id="petColor" name="petColor" placeholder="e.g., Brown, White, Black" required>
+                    <label for="petColor" class="form-label fw-semibold text-dark">Color</label>
+                    <input type="text" class="form-control border-2 rounded-3 py-2 px-3" id="petColor" name="petColor" placeholder="e.g., Brown, White, Black" required>
                 </div>
 
                 <div class="d-flex justify-content-end gap-2">
-                    <button type="button" class="btn btn-primary" onclick="registerPet(event)">Register</button>
-                    <button type="reset" class="btn btn-secondary">Reset Form</button>
+                    <button type="button" class="btn btn-primary px-4 py-2 rounded-3 fw-semibold" onclick="registerPet(event)">Register</button>
+                    <button type="reset" class="btn btn-secondary px-4 py-2 rounded-3 fw-semibold">Reset Form</button>
                 </div>
             </form>
         </div>
 
-        <!-- Pet Display Section -->
+        <!-- Pet table display -->
         <div class="mt-5 mb-5">
-            <h2>Registered Pets</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead class="table-dark">
+            <h2 class="fw-bold mb-3">Registered Pets</h2>
+            <div class="table-responsive rounded-3 overflow-hidden shadow">
+                <table class="table table-striped table-hover mb-0">
+                    <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Breed</th>
-                            <th>Gender</th>
-                            <th>Service</th>
-                            <th>Color</th>
-                            <th>Type</th>
-                            <th>Actions</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Name</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Age</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Breed</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Gender</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Service</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Color</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Type</th>
+                            <th class="py-3 px-4 text-uppercase fw-semibold small">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="petTableBody">
-                        <!-- Pet rows will be dynamically inserted here by JavaScript -->
+                        <!-- JavaScript will insert pet rows here -->
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- ============================================================
-             PET STATISTICS SECTION
-             ============================================================
-             Displays count of registered pets and lists the initial 3 pets -->
+        <!-- Pet statistics section -->
         <div class="mt-5 mb-5">
             <div class="row">
-                <!-- Pet Count Card -->
                 <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="mb-0">📊 Pet Statistics</h3>
+                    <div class="card border-0 rounded-3 shadow">
+                        <div class="card-header rounded-top py-3">
+                            <h3 class="mb-0 fw-bold">📊 Pet Statistics</h3>
                         </div>
-                        <div class="card-body">
-                            <h4 id="petCount" class="text-center display-4">0</h4>
-                            <p class="text-center text-muted">Total Pets Registered</p>
+                        <div class="card-body bg-white">
+                            <h4 id="petCount" class="text-center display-4 fw-bold">0</h4>
+                            <p class="text-center text-muted mb-0">Total Pets Registered</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Initial Pets List Card -->
                 <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="mb-0">🐕 Initial Pets</h3>
+                    <div class="card border-0 rounded-3 shadow">
+                        <div class="card-header rounded-top py-3">
+                            <h3 class="mb-0 fw-bold">🐕 Initial Pets</h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body bg-white">
                             <ul id="petList" class="list-group list-group-flush">
-                                <!-- Pet names will be inserted here by JavaScript -->
+                                <!-- JavaScript will insert pet names here -->
                             </ul>
                         </div>
                     </div>
@@ -221,56 +167,51 @@
         </div>
     </main>
 
-    <!-- Footer Section -->
-    <footer class="site-footer">
+    <!-- Site footer -->
+    <footer class="site-footer py-5">
         <div class="container">
             <div class="row">
-                <!-- About Column -->
                 <div class="col-md-4 mb-4">
-                    <h5>🐾 The Fashion Pet Salon</h5>
+                    <h5 class="fw-bold mb-3">🐾 The Fashion Pet Salon</h5>
                     <p>Providing premium grooming and care services for your beloved pets since 2020. We treat every pet like family!</p>
                 </div>
                 
-                <!-- Quick Links Column -->
                 <div class="col-md-4 mb-4">
-                    <h5>Quick Links</h5>
+                    <h5 class="fw-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="registration.html">Register Your Pet</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li class="mb-2"><a href="index.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Our Services</a></li>
+                        <li class="mb-2"><a href="registration.html">Register Your Pet</a></li>
+                        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
                 
-                <!-- Contact Column -->
                 <div class="col-md-4 mb-4">
-                    <h5>Contact Us</h5>
-                    <p><i class="bi bi-geo-alt-fill"></i> 123 Pet Street, Dogtown, CA 90210</p>
-                    <p><i class="bi bi-telephone-fill"></i> (555) 123-PETS</p>
-                    <p><i class="bi bi-envelope-fill"></i> info@fashionpetsalon.com</p>
-                    <p><i class="bi bi-clock-fill"></i> Mon-Fri: 9AM-6PM, Sat: 9AM-4PM</p>
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
+                    <p class="mb-2"><i class="bi bi-geo-alt-fill"></i> 123 Pet Street, Dogtown, CA 90210</p>
+                    <p class="mb-2"><i class="bi bi-telephone-fill"></i> (555) 123-PETS</p>
+                    <p class="mb-2"><i class="bi bi-envelope-fill"></i> info@fashionpetsalon.com</p>
+                    <p class="mb-2"><i class="bi bi-clock-fill"></i> Mon-Fri: 9AM-6PM, Sat: 9AM-4PM</p>
                     
-                    <!-- Social Media Links -->
                     <div class="social-links mt-3">
-                        <a href="#"><i class="bi bi-facebook"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="d-inline-block me-3 fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="d-inline-block me-3 fs-4"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="d-inline-block me-3 fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="d-inline-block me-3 fs-4"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
             </div>
             
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p>&copy; 2025 The Fashion Pet Salon. All rights reserved. | Designed with ❤️ for pets</p>
+            <div class="footer-bottom pt-4 mt-4 text-center">
+                <p class="mb-0">&copy; 2025 The Fashion Pet Salon. All rights reserved. | Designed with ❤️ for pets</p>
             </div>
         </div>
     </footer>
 
-<!-- Bootstrap JS Bundle (includes Popper) -->
+<!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<!-- Custom JavaScript Files -->
+<!-- Custom JavaScript -->
 <script src="scripts/main.js"></script>
 <script src="scripts/register.js"></script>
     
